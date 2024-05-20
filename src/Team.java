@@ -2,12 +2,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Team {
+public class Team{
     private String teamName;
     private List<Player> players;
     private int points;
     private int goalsScored;
     private int goalsConceded;
+
+    private int matchesPlayed;
+    private int win;
+    private int loss;
+    private int draw;
 
     public Team(String teamName) {
         this.teamName = teamName;
@@ -15,8 +20,57 @@ public class Team {
         this.points = 0;
         this.goalsScored = 0;
         this.goalsConceded = 0;
+        this.matchesPlayed = 0;
+        this.win = 0;
+        this.loss = 0;
+        this.draw = 0;
     }
 
+
+    public int getWin() {
+        return win;
+    }
+
+    public void setWin(int win) {
+        this.win = win;
+    }
+
+    public int getLoss() {
+        return loss;
+    }
+
+    public void setLoss(int loss) {
+        this.loss = loss;
+    }
+
+    public int getDraw() {
+        return draw;
+    }
+
+    public void setDraw(int draw) {
+        this.draw = draw;
+    }
+
+    public void incrementWins(){
+        win++;
+    }
+    public void incrementLoss(){
+        loss++;
+    }
+    public void incrementDraws(){
+        draw++;
+    }
+    public int getMatchesPlayed() {
+        return matchesPlayed;
+    }
+
+    public void setMatchesPlayed(int matchesPlayed) {
+        this.matchesPlayed = matchesPlayed;
+    }
+
+    public void incrementMatchesPlayed(){
+        matchesPlayed++;
+    }
 
     public String getTeamName() {
         return teamName;
@@ -25,6 +79,7 @@ public class Team {
     public void setTeamName(String teamName) {
         this.teamName = teamName;
     }
+
     public void addPlayer(Player player) {
         players.add(player);
     }
@@ -101,6 +156,9 @@ public class Team {
         return totalRating / players.size();
     }
 
+    public int goalDifference(){
+        return goalsScored - goalsConceded;
+    }
 
 
     @Override

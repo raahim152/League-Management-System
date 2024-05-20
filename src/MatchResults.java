@@ -3,12 +3,13 @@ public class MatchResults {
     private Match match;
     private int homeTeamGoals;
     private int  awayTeamGoals;
-    private static String outcome;
+    private String outcome ;
 
-    public MatchResults(int homeTeamGoals, int awayTeamGoals) {
+    public MatchResults(Match match, int homeTeamGoals, int awayTeamGoals) {
+        this.match = match;
         this.homeTeamGoals = homeTeamGoals;
         this.awayTeamGoals = awayTeamGoals;
-
+        setOutcome();
     }
 
     public Match getMatch() {
@@ -24,7 +25,6 @@ public class MatchResults {
     }
 
     public String getOutcome() {
-
         return outcome;
     }
 
@@ -38,15 +38,22 @@ public class MatchResults {
 
     public void setAwayTeamGoals(int awayTeamGoals) {
         this.awayTeamGoals = awayTeamGoals;
+
     }
 
-    public void setOutcome(String outcome) {
-        this.outcome = outcome;
+    public void setOutcome() {
+        if(homeTeamGoals > awayTeamGoals){
+            outcome = "Home Win";
+        } else if(awayTeamGoals > homeTeamGoals){
+            outcome = "Away Win";
+        } else{
+            outcome = "Draw";
+        }
     }
 
     @Override
     public String toString() {
-        return match.getHomeTeam().getTeamName() + " " + homeTeamGoals + " - " + awayTeamGoals + " " + match.getAwayTeam().getTeamName() + " " + outcome;
+        return this.outcome;
     }
 
 }
