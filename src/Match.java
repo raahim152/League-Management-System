@@ -48,14 +48,7 @@ public class Match {
         return homeTeam.getTeamName() + " VS " + awayTeam.getTeamName();
     }
 
-    public void setResult(int homeTeamGoals, int awayTeamGoals) {
-        this.homeTeamGoals = homeTeamGoals;
-        this.awayTeamGoals = awayTeamGoals;
-    }
 
-    public String getResult() {
-        return homeTeam.getTeamName() + " " + homeTeamGoals + " - " + awayTeamGoals + " " + awayTeam.getTeamName();
-    }
 
 
 }

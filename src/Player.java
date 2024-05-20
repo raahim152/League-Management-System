@@ -15,6 +15,7 @@ public class Player {
         this.rating = rating;
         this.goals_Scored = 0;
         this.assists = 0;
+
     }
 
     public String getName() {
@@ -62,7 +63,8 @@ public class Player {
     }
 
     public void assistGoal(){
-        assists++;
+            assists++;
+
     }
 
     @Override
